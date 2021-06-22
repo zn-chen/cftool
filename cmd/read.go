@@ -13,7 +13,7 @@ func init() {
 // readCmd represents the read command
 var readCmd = &cobra.Command{
 	Use:   "r",
-	Short: "write from cfg file",
+	Short: "write from cftool file",
 	Long: `Example:
 cftool r -f config.ini session.key`,
 	Run: func(cmd *cobra.Command, args []string) {
