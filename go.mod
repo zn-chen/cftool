@@ -1,4 +1,4 @@
-module github.com/toolman-oscar/cftool
+module github.com/zn-chen/cftool
 
 go 1.15
 

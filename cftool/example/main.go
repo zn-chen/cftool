@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/airbike233/cftool/cftool"
+	"github.com/zn-chen/cftool/cftool"
 )
 
 var testDataJson = `{

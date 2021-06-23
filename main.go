@@ -1,6 +1,6 @@
 package main
 
-import "github.com/airbike233/cftool/cmd"
+import "github.com/zn-chen/cftool/cmd"
 
 func main() {
 	cmd.Execute()
