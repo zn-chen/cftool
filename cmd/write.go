@@ -23,13 +23,15 @@ cftool w -f config.ini session.key=value > config.ini`,
 	Run: writeFile,
 }
 
-func writeFile(_ *cobra.Command, args []string) {
+func writeFile(cmd *cobra.Command, args []string) {
 	if 1 > len(args) {
-		Exit("args error")
+		_ = cmd.Help()
+		os.Exit(1)
 	}
 	kv := strings.Split(args[0], "=")
 	if 2 > len(kv) {
-		Exit("args error")
+		_ = cmd.Help()
+		os.Exit(1)
 	}
 	value := kv[1]
 	keys := strings.Split(kv[0], ".")

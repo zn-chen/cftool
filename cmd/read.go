@@ -24,14 +24,16 @@ cftool r -f config.ini session.key`,
 	Run: readFile,
 }
 
-func readFile(_ *cobra.Command, args []string) {
+func readFile(cmd *cobra.Command, args []string) {
 	if 1 > len(args) {
-		Exit("args error")
+		_ = cmd.Help()
+		os.Exit(1)
 	}
 	keys := strings.Split(args[0], ".")
 	data, err := ioutil.ReadFile(cfgFile)
 	if err != nil {
-		Exit(err)
+		_ = cmd.Help()
+		os.Exit(1)
 	}
 
 	switch FileType(cfgFile) {
