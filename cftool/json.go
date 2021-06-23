@@ -39,6 +39,7 @@ func searchMap(source map[string]interface{}, path []string, edit func(map[strin
 	return nil
 }
 
+// setMap 对json进行编辑, 如搜素路径不存在则创建
 func setMap(source map[string]interface{}, path []string, v interface{}) interface{} {
 	next, ok := source[path[0]]
 	if ok {
@@ -88,4 +89,9 @@ func (j *JsonEdit) SetValue(path []string, d interface{}) string {
 	default:
 		return ""
 	}
+}
+
+func (j JsonEdit) String() string {
+	b, _ := json.MarshalIndent(j, "", "  ")
+	return string(b)
 }
