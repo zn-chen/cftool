@@ -1,4 +1,4 @@
-module github.com/airbike233/cftool
+module github.com/toolman-oscar/cftool
 
 go 1.15
 

@@ -2,12 +2,13 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/airbike233/cftool/cftool"
 	"io/ioutil"
 	"os"
 	"strings"
 
 	"github.com/spf13/cobra"
+
+	"github.com/toolman-oscar/cftool/cftool"
 )
 
 func init() {

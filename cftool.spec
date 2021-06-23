@@ -2,7 +2,7 @@ Name:           cftool
 Version:        v1.0.0
 Release:        1%{?dist}
 Summary:        config help tool
-Vendor:			airbike233
+Vendor:			oscar
 
 License:		GPL
 Source0:        %{name}-%{version}.tar.gz

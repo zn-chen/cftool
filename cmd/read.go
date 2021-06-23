@@ -8,7 +8,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/airbike233/cftool/cftool"
+	"github.com/toolman-oscar/cftool/cftool"
 )
 
 func init() {
