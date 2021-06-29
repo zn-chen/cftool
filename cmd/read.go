@@ -38,7 +38,7 @@ func readFile(cmd *cobra.Command, args []string) {
 
 	switch FileType(cfgFile) {
 	case "ini":
-		i, err := cftool.NewJsonEdit(data)
+		i, err := cftool.NewIniEdit(data)
 		if err == nil {
 			_, _ = fmt.Fprint(os.Stdout, i.GetValue(keys))
 		} else {

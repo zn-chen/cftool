@@ -43,7 +43,7 @@ func writeFile(cmd *cobra.Command, args []string) {
 
 	switch FileType(cfgFile) {
 	case "ini":
-		i, err := cftool.NewJsonEdit(data)
+		i, err := cftool.NewIniEdit(data)
 		if err == nil {
 			_ = i.SetValue(keys, value)
 			_, _ = fmt.Fprint(os.Stdout, i)
