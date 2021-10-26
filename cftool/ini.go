@@ -19,7 +19,7 @@ func NewIniEdit(data []byte) (*IniEdit, error) {
 	return &IniEdit{cfg}, nil
 }
 
-// getValue 从json内容中读取一个key值
+// GetValue 从json内容中读取一个key值
 func (j IniEdit) GetValue(path []string) string {
 	var session, key string
 	if 1 == len(path) {
@@ -35,7 +35,7 @@ func (j IniEdit) GetValue(path []string) string {
 	return j.Section(session).Key(key).Value()
 }
 
-// setValue 设置json内中指定json中的值
+// SetValue 设置json内中指定json中的值
 func (j IniEdit) SetValue(path []string, d interface{}) string {
 	var session, key string
 	if 1 == len(path) {

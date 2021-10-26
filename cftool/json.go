@@ -66,18 +66,12 @@ func setMap(source map[string]interface{}, path []string, v interface{}) interfa
 	return setMap(newValue, path[1:], v)
 }
 
-// getValue 从json内容中读取一个key值
-func (j *JsonEdit) GetValue(path []string) string {
-	v := searchMap(*j, path, func(m map[string]interface{}, s string) {})
-	switch v.(type) {
-	case string:
-		return v.(string)
-	default:
-		return ""
-	}
+// GetValue 从json内容中读取一个key值
+func (j *JsonEdit) GetValue(path []string) interface{} {
+	return searchMap(*j, path, func(m map[string]interface{}, s string) {})
 }
 
-// setValue 设置json内中指定json中的值
+// SetValue 设置json内中指定json中的值
 func (j *JsonEdit) SetValue(path []string, d interface{}) string {
 	//v := searchMap(*j, path, func(m map[string]interface{}, s string) {
 	//	m[s] = d
