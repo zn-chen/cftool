@@ -1,5 +1,5 @@
 Name:           cftool
-Version:        v1.0.0
+Version:        v1.1.0
 Release:        2%{?dist}
 Summary:        config help tool
 Vendor:			oscar

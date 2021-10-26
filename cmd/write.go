@@ -1,7 +1,6 @@
 package cmd
 
 import (
-	"fmt"
 	"io/ioutil"
 	"os"
 	"strings"
@@ -20,7 +19,7 @@ var writeCmd = &cobra.Command{
 	Use:   "w",
 	Short: "write to cftool file",
 	Long: `Example:
-cftool w -f config.ini session.key=value > config.ini`,
+cftool w -f config.ini session.key=value`,
 	Run: writeFile,
 }
 
@@ -43,18 +42,26 @@ func writeFile(cmd *cobra.Command, args []string) {
 
 	switch FileType(cfgFile) {
 	case "ini":
-		i, err := cftool.NewIniEdit(data)
+		var i *cftool.IniEdit
+		i, err = cftool.NewIniEdit(data)
 		if err == nil {
 			_ = i.SetValue(keys, value)
-			_, _ = fmt.Fprint(os.Stdout, i)
+			//_, _ = fmt.Fprint(os.Stdout, i)
+			if err = ioutil.WriteFile(cfgFile, []byte(i.String()), 777); err != nil {
+				Exit(err)
+			}
 		} else {
 			Exit(err)
 		}
 	case "json":
-		j, err := cftool.NewJsonEdit(data)
+		var j cftool.JsonEdit
+		j, err = cftool.NewJsonEdit(data)
 		if err == nil {
 			_ = j.SetValue(keys, value)
-			_, _ = fmt.Fprint(os.Stdout, j)
+			//_, _ = fmt.Fprint(os.Stdout, j)
+			if err = ioutil.WriteFile(cfgFile, []byte(j.String()), 777); err != nil {
+				Exit(err)
+			}
 		} else {
 			Exit(err)
 		}
